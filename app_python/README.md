@@ -56,7 +56,6 @@ reloading on code changes
    uvicorn moscow_time.main:app --reload
    ```
 
-
 ## Run via Docker
 
 1. Pull image from docker hub
@@ -64,11 +63,19 @@ reloading on code changes
    ```bash
    docker pull ziucay/pythonapp:0.2
    ```
-   
+
 2. Run container
 
    ```bash
    docker run -d -p 8000:8000 --rm --name pythonapp ziucay/pythonapp:0.2
+   ```
+
+## Unit tests
+
+To run unit tests, write
+
+   ```bash
+   pytest
    ```
 
 ## Contact

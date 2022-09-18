@@ -5,7 +5,7 @@ import pytz
 app = FastAPI()
 
 
-def time():
+def moscow_time():
     timezone = pytz.timezone('Europe/Moscow')
 
     return datetime.now(timezone).isoformat()
@@ -13,4 +13,4 @@ def time():
 
 @app.get("/")
 async def root():
-    return {"time": f"{time()}"}
+    return {"time": f"{moscow_time()}"}
