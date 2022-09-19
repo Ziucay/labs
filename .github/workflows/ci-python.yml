@@ -14,6 +14,9 @@ jobs:
     strategy:
       matrix:
         python-version: [ "3.10" ]
+    defaults:
+      run:
+        working-directory: ./app
 
     steps:
       - uses: actions/checkout@v3
@@ -43,7 +46,6 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args:
-            app_python
             --command=python3
             --sarif-file-output=snyk.sarif 
             --severity-threshold=high
