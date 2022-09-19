@@ -36,6 +36,7 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
+      - uses: snyk/actions/setup@master
       - name: run Snyk test
         run: snyk test --sarif-file-output=snyk.sarif
         working-directory: app_python
