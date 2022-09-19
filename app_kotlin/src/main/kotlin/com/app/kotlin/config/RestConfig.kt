@@ -8,5 +8,5 @@ import org.springframework.context.annotation.Configuration
 class RestConfig {
 
     @Bean
-    fun getTimeService() : GetTimeService = GetTimeService()
+    fun getTimeService():GetTimeService = GetTimeService()
 }

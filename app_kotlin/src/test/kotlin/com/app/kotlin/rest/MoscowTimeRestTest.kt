@@ -3,9 +3,7 @@ package com.app.kotlin.rest
 import com.app.kotlin.service.GetTimeService
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.Mock
 import org.mockito.Mockito
-import org.mockito.Mockito.mock
 import org.skyscreamer.jsonassert.JSONAssert
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
@@ -25,7 +23,6 @@ class MoscowTimeRestTest(
 
     @Test
     fun getTimeInCorrectFormat() {
-
         val time = "2022-09-19T22:27:10.4370126+03:00"
 
         Mockito.`when`(
@@ -37,5 +34,4 @@ class MoscowTimeRestTest(
         val result = mockMvc.perform(requestBuilder).andReturn()
         JSONAssert.assertEquals("{\"time\":\"${time}\"}", result.response.contentAsString, true)
     }
-
 }
