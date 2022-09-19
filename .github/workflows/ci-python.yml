@@ -39,7 +39,7 @@ jobs:
       - name: Test with pytest
         run: pytest
       - name: Run linter for documentation
-      - uses: errata-ai/vale-action@reviewdog
+        uses: errata-ai/vale-action@reviewdog
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
