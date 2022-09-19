@@ -13,7 +13,7 @@ jobs:
     timeout-minutes: 30
     strategy:
       matrix:
-        python-version: [ "3.10" ]
+        python-version: [ "3.8" ]
 
     steps:
       - uses: actions/checkout@v3
@@ -37,7 +37,7 @@ jobs:
         run: |
           pytest
       - name: Run Snyk to check for vulnerabilities
-        uses: actions/snyk-for-python-3.10
+        uses: snyk/actions/python-3.8@master
         continue-on-error: true # To make sure that SARIF upload gets called
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
