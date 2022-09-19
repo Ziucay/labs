@@ -1,6 +1,9 @@
 name: Build, lint and test python app, then push docker image to github
 
-on: [ push ]
+on:
+  push:
+    paths:
+      - app_python/**
 
 permissions:
   contents: read
