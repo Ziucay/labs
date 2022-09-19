@@ -43,9 +43,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args:
-            --file=app_python/requirements.txt
-            --package-manager=pip
-            --command=python3
+            app_python
             --sarif-file-output=snyk.sarif 
             --severity-threshold=high
       - name: Upload result to GitHub Code Scanning
