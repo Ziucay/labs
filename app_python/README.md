@@ -81,9 +81,9 @@ To run unit tests, write
 ## CI
 ![python CI](https://github.com/ziucay/labs/actions/workflows/ci-python.yml/badge.svg)
 
-Workflow `ci-pyton`, upon each push, uses linter, runs unit tests 
-and checks for vulnerabilities via `snyk`. After that, builds an
-image and pushes it to the Docker Hub
+Workflow `ci-pyton`, upon each push, uses linter for code and docs,
+runs unit tests and checks for vulnerabilities via `snyk`. After that, 
+builds an image and pushes it to the Docker Hub
 
 ## Contact
 

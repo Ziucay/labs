@@ -38,6 +38,12 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest
         run: pytest
+      - name: Run linter for documentation
+      - uses: errata-ai/vale-action@reviewdog
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          files: app_python
       - uses: snyk/actions/setup@master
       - name: run Snyk test
         run: snyk test --sarif-file-output=snyk.sarif
