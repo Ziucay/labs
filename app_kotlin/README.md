@@ -37,6 +37,11 @@ You can run `mvn verify` to run `ktlint` linter.
 
 Run vale <path to document> from repository root, to check Markdown docs.
 
+## CI
+
+`ci-kotlin.yml` checks code and docks with linters, run unit tests, when
+pushes the image to docker hub.
+
 ## Contact
 
 For questions and suggestions, write in [Telegram](https://web.telegram.org/): [@ziucay](https://t.me/Ziucay)
