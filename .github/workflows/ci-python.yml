@@ -37,15 +37,12 @@ jobs:
         run: |
           pytest
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/python-3.8@master
+        uses: snyk/actions/python@master
         continue-on-error: true # To make sure that SARIF upload gets called
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args:
-            --sarif-file-output=snyk.sarif
-            --severity-threshold=high
-            --file=app_python/requirements.txt
+          args: --sarif-file-output=snyk.sarif --severity-threshold=high --file=app_python/requirements.txt
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
