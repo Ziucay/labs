@@ -36,6 +36,8 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
+      - name: Install dependencies once again
+        run: pip install -r app_python/requirements.txt
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python-3.8@master
         continue-on-error: true # To make sure that SARIF upload gets called
