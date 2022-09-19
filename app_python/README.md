@@ -79,7 +79,7 @@ To run unit tests, write
    ```
 
 ## CI
-![python CI](https://github.com/ziucay/labs/workflows/ci-python.yml/badge.svg)
+![python CI](https://github.com/ziucay/labs/actions/workflows/ci-python.yml/badge.svg)
 
 Currently, there's one CI pipeline, which, upon each 
 
