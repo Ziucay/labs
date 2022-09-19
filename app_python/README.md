@@ -78,6 +78,11 @@ To run unit tests, write
    pytest
    ```
 
+## CI
+![python CI](https://github.com/ziucay/labs/actions/workflows/ci-python.yml/badge.svg?event=push)
+
+Currently, there's one CI pipeline, which, upon each 
+
 ## Contact
 
 For questions and suggestions, write in [Telegram](https://web.telegram.org/): [@ziucay](https://t.me/Ziucay)
