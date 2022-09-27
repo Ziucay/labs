@@ -8,7 +8,6 @@ terraform {
 }
 
 provider "github" {
-  token = var.token # or `GITHUB_TOKEN`
 }
 
 #Create and initialise a public GitHub Repository with MIT license and a Visual Studio .gitignore file (incl. issues and wiki)
@@ -28,7 +27,7 @@ resource "github_branch_default" "master" {
 
 #Create branch protection rule to protect the default branch. (Use "github_branch_protection_v3" resource for Organisation rules)
 resource "github_branch_protection" "default" {
-  repository_id                   = github_repository.repo.id
+  repository_id                   = github_repository.labs.id
   pattern                         = github_branch_default.master.branch
   require_conversation_resolution = true
   enforce_admins                  = true

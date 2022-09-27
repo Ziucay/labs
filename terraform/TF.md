@@ -322,3 +322,9 @@ external_ip_address_vm_1 = "51.250.104.120"
 internal_ip_address_vm_1 = "192.168.10.34"
 ```
 
+## Applied practices
+
+- Using variables.tf to avoid constants in files
+- Using outputs.tf for returning useful information
+- Not putting PAT's and other sensitive info in config files, to avoid security leak
+- Yandex mirror for terraform registry, to ease downloading providers

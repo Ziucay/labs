@@ -21,7 +21,8 @@ venv
 docs.zip
 archive.zip
 .terraform
-
+terraform.tfstate
+terraform.tfstate.backup
 # vim temporary files
 *~
 .*.sw?
