@@ -1,0 +1,6 @@
+all:
+  yandex:
+    hosts:
+      vm01:
+        ansible_host: 158.160.14.35
+        ansible_user: ubuntu
