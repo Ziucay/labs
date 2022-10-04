@@ -120,6 +120,14 @@ vm01                       : ok=14   changed=3    unreachable=0    failed=0    s
 
 # Bonus task
 
+1. Install `yandexcloud`
+
+```commandline
+pip install yandexcloud
+```
+
+2. Create `yc_oauth` file in ansible root folder, put yc OAuth token in it 
+
 Running playbook
 
 ```
