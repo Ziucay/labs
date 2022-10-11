@@ -8,6 +8,7 @@
     state: present
   with_items:
     - { name: docker }
+    - { name: docker-compose }
 
 - name: Install Docker packages.
   package:
