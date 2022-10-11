@@ -3,7 +3,7 @@
   when: ansible_os_family == 'Debian'
 
 - name: Upgrade pip
-  command: "pip install --upgrade pip"
+  command: "pip3 install --upgrade pip"
 
 - name: install python modules for docker
   pip:
