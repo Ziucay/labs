@@ -12,7 +12,6 @@
       - apt-transport-https
       - ca-certificates
       - python3-pip
-      - docker-compose
     state: present
 
 - name: Ensure additional dependencies are installed (on Ubuntu < 20.04 and any other systems).
