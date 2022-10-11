@@ -2,6 +2,9 @@
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+- name: Upgrade pip
+  command: "pip install --upgrade pip"
+
 - name: install python modules for docker
   pip:
     name: "{{ item.name }}"
