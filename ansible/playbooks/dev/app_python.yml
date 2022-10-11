@@ -1,0 +1,6 @@
+- name: Deploy Python app
+  hosts: all
+  roles:
+    - webapp
+  remote_user: ubuntu
+  become: true
