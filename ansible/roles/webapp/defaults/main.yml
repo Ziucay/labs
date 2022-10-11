@@ -1,0 +1,9 @@
+app_name: "moscow_time"
+docker_ports:
+  external: 8000
+  internal: 8000
+docker_registry: "ziucay"
+docker_image: "pythonapp"
+docker_tag: "latest"
+app_base_path: "/app"
+web_app_full_wipe: true
