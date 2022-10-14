@@ -1,4 +1,4 @@
-- name: Deploy Python app
+- name: Deploy default app
   hosts: all
   roles:
     - webapp
