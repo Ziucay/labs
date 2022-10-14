@@ -4,7 +4,7 @@
   become: true
 
   roles:
-    - role: web_app
+    - role: webapp
       vars:
         web_app:
           app_name: "pythonapp"
