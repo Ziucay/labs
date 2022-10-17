@@ -23,3 +23,7 @@ scrape_configs:
       - targets: ['pythonapp:8000']
         labels:
           group: 'pythonapp'
+
+      - targets: ['kotlinapp:8080/actuator/prometheus']
+        labels:
+          group: 'kotlinapp'
