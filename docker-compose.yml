@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  web:
+    build: ./app_python/
+    ports:
+      - "8000:8000"
+  db:
+    build: ./prometheus/
+    ports:
+      - "8000:8000"
