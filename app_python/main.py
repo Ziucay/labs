@@ -1,4 +1,4 @@
-from prometheus_fastapi_instrumentator import Instrumentator
+from starlette_exporter import PrometheusMiddleware, handle_metrics
 from fastapi import FastAPI
 from datetime import datetime
 import pytz
@@ -6,9 +6,8 @@ import pytz
 app = FastAPI()
 
 # Expose /metrics endpoint for prometheus
-@app.on_event("startup")
-async def startup():
-    Instrumentator().instrument(app).expose(app)
+app.add_middleware(PrometheusMiddleware)
+app.add_route("/metrics", handle_metrics)
 
 def moscow_time():
     timezone = pytz.timezone('Europe/Moscow')
