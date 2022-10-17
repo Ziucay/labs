@@ -1,10 +1,14 @@
 version: "3.9"
 services:
-  web:
+  pythonapp:
     build: ./app_python/
+    restart: always
     ports:
       - "8000:8000"
-  db:
+  prometheus:
     build: ./prometheus/
+    restart: always
     ports:
-      - "8000:8000"
+      - "9090:9090"
+    depends_on:
+      - pythonapp
