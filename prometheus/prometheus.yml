@@ -20,10 +20,6 @@ scrape_configs:
         labels:
           group: 'self'
 
-      - targets: ['localhost:8000']
+      - targets: ['pythonapp:8000']
         labels:
-          group: 'python'
-
-      - targets: ['localhost:8080']
-        labels:
-          group: 'kotlin'
+          group: 'pythonapp'
