@@ -24,6 +24,12 @@ scrape_configs:
         labels:
           group: 'pythonapp'
 
-      - targets: ['kotlinapp:8080/actuator/prometheus']
+
+  - job_name: 'kotlinapp'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+
+    static_configs:
+      - targets: ['kotlinapp:8080']
         labels:
           group: 'kotlinapp'
