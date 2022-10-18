@@ -16,13 +16,13 @@ scrape_configs:
           group: 'self'
 
       - targets: [ 'loki:3100' ]
-      - targets: [ 'grafana:9090' ]
+      - targets: [ 'grafana:3000' ]
 
   - job_name: 'pythonapp'
     scrape_interval: 5s
 
     static_configs:
-      - targets: [ 'pythonapp:8080' ]
+      - targets: [ 'pythonapp:8000' ]
         labels:
           group: 'app'
 

@@ -5,7 +5,7 @@ networks:
 
 services:
   pythonapp:
-    build: ../app_python
+    build: ../app_python/
     restart: always
     ports:
       - "8000:8000"
