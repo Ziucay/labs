@@ -1,4 +1,7 @@
 ---
+- name: Update packages
+  command: "apt-get update"
+
 - name: Ensure old versions of Docker are not installed.
   package:
     name:
@@ -11,6 +14,7 @@
     name:
       - apt-transport-https
       - ca-certificates
+      - python3-pip
     state: present
 
 - name: Ensure additional dependencies are installed (on Ubuntu < 20.04 and any other systems).

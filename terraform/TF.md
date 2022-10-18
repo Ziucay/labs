@@ -328,3 +328,5 @@ internal_ip_address_vm_1 = "192.168.10.34"
 - Using outputs.tf for returning useful information
 - Not putting PAT's and other sensitive info in config files, to avoid security leak
 - Yandex mirror for terraform registry, to ease downloading providers
+
+
