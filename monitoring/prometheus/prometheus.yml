@@ -1,0 +1,36 @@
+global:
+  scrape_interval: 15s
+
+  external_labels:
+    monitor: 'codelab-monitor'
+
+scrape_configs:
+
+  - job_name: 'monitoring'
+
+    scrape_interval: 5s
+
+    static_configs:
+      - targets: [ 'localhost:9090' ]
+        labels:
+          group: 'self'
+
+      - targets: [ 'loki:3100' ]
+      - targets: [ 'grafana:3000' ]
+
+  - job_name: 'pythonapp'
+    scrape_interval: 5s
+
+    static_configs:
+      - targets: [ 'pythonapp:8000' ]
+        labels:
+          group: 'app'
+
+  - job_name: 'kotlinapp'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+
+    static_configs:
+      - targets: [ 'kotlinapp:8080' ]
+        labels:
+          group: 'app'
