@@ -1,5 +1,13 @@
 version: "3.9"
 
+x-logging:
+  &loki-logging
+  driver: "json-file"
+  options:
+    max-size: "100m"
+    max-file: "10"
+    tag: "{{.ImageName}}|{{.Name}}"
+
 networks:
   apps:
 
@@ -11,6 +19,7 @@ services:
       - "8000:8000"
     networks:
       - apps
+    logging: *loki-logging
 
   kotlinapp:
     build: ../app_kotlin/
@@ -19,6 +28,7 @@ services:
       - "8080:8080"
     networks:
       - apps
+    logging: *loki-logging
 
   prometheus:
     build: ./prometheus/
@@ -27,6 +37,7 @@ services:
       - "9090:9090"
     networks:
       - apps
+    logging: *loki-logging
 
   loki:
     image: grafana/loki:2.6.1
@@ -35,16 +46,18 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - apps
+    logging: *loki-logging
 
   promtail:
-    image: grafana/promtail:2.6.1
+    build: ./promtail/
     ports:
       - "9080:9080"
     volumes:
       - /var/log:/var/log
-    command: -config.file=./promtail-config.yml
+    command: -config.file=/etc/promtail/config.yml
     networks:
       - apps
+    logging: *loki-logging
 
   grafana:
     image: grafana/grafana:latest
@@ -52,4 +65,5 @@ services:
       - "3000:3000"
     networks:
       - apps
+    logging: *loki-logging
 
