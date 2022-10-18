@@ -41,6 +41,8 @@ services:
 
   loki:
     image: grafana/loki:2.6.1
+    expose:
+      - 3100
     ports:
       - "3100:3100"
     restart: always
@@ -51,6 +53,8 @@ services:
 
   promtail:
     image: grafana/promtail:2.6.1
+    expose:
+      - 9080
     ports:
       - "9080:9080"
     volumes:
@@ -67,6 +71,8 @@ services:
     image: grafana/grafana:latest
     volumes:
       - ./loki.yml:/etc/grafana/provisioning/datasources/datasource.yml
+    expose:
+      - 3000
     ports:
       - "3000:3000"
     networks:
