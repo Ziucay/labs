@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kotlinapp-deployment
+  labels:
+    app: kotlinapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kotlinapp
+  template:
+    metadata:
+      labels:
+        app: kotlinapp
+    spec:
+      containers:
+      - name: kotlinapp
+        image: ziucay/kotlinapp:latest
+        ports:
+        - containerPort: 8080

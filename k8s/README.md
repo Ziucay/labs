@@ -42,3 +42,32 @@ service/pythonapp-service   LoadBalancer   10.96.15.170   <pending>     8000:327
 
 
 ```
+
+## Outputs for extra app
+
+```
+NAME                                       READY   STATUS    RESTARTS   AGE
+pod/kotlinapp-deployment-c59fd6479-4f22s   1/1     Running   0          65s
+pod/kotlinapp-deployment-c59fd6479-t697w   1/1     Running   0          65s
+pod/kotlinapp-deployment-c59fd6479-x6q9p   1/1     Running   0          65s
+
+NAME                        TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/kotlinapp-service   LoadBalancer   10.109.212.63   <pending>     8080:32684/TCP   39s
+service/kubernetes          ClusterIP      10.96.0.1       <none>        443/TCP          5h12m
+
+
+
+|-----------|-------------------|-------------|---------------------------|
+| NAMESPACE |       NAME        | TARGET PORT |            URL            |
+|-----------|-------------------|-------------|---------------------------|
+| default   | kotlinapp-service |        8080 | http://192.168.49.2:32684 |
+|-----------|-------------------|-------------|---------------------------|
+|-----------|------------|-------------|--------------|
+| NAMESPACE |    NAME    | TARGET PORT |     URL      |
+|-----------|------------|-------------|--------------|
+| default   | kubernetes |             | No node port |
+|-----------|------------|-------------|--------------|
+😿  service default/kubernetes has no node port
+🎉  Opening service default/kotlinapp-service in default browser...
+
+```
