@@ -91,3 +91,54 @@ make it with DaemonSet.
 
 Persistent Volumes - storage, like a volume, but it is independent of Pod. It gives an opportunity 
 to restart pod and share data between them safely.
+
+# Lab 10
+
+## Python app output
+
+```
+|-----------|-----------|-------------|---------------------------|
+| NAMESPACE |   NAME    | TARGET PORT |            URL            |
+|-----------|-----------|-------------|---------------------------|
+| default   | pythonapp | http/8000   | http://192.168.49.2:32517 |
+|-----------|-----------|-------------|---------------------------|
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/pythonapp-847b77fc6d-crxc4   1/1     Running   0          3m34s
+pod/pythonapp-847b77fc6d-dh5bw   1/1     Running   0          3m34s
+pod/pythonapp-847b77fc6d-jjzbf   1/1     Running   0          3m34s
+
+NAME                 TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes   ClusterIP      10.96.0.1      <none>        443/TCP          7d22h
+service/pythonapp    LoadBalancer   10.99.123.88   <pending>     8000:32517/TCP   3m34s
+sarvar@sarvar-H410M-H-V3:~/labs/k8s$ 
+
+```
+
+## Extra app output
+
+```
+|-----------|-----------|-------------|---------------------------|
+| NAMESPACE |   NAME    | TARGET PORT |            URL            |
+|-----------|-----------|-------------|---------------------------|
+| default   | kotlinapp | http/8080   | http://192.168.49.2:30656 |
+|-----------|-----------|-------------|---------------------------|
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/kotlinapp-76f486d8c8-4vxqx   1/1     Running   0          103s
+pod/kotlinapp-76f486d8c8-8256d   1/1     Running   0          103s
+pod/kotlinapp-76f486d8c8-ckdb6   1/1     Running   0          103s
+
+NAME                 TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/kotlinapp    LoadBalancer   10.103.66.67   <pending>     8080:30656/TCP   103s
+service/kubernetes   ClusterIP      10.96.0.1      <none>        443/TCP          7d23h
+sarvar@sarvar-H410M-H-V3:~/labs/k8s$ 
+
+```
+
+## Library charts
+
+Charts, which are intended to contain common for the charts snippets, avoiding code duplication. Basically the similar to libraries in programming languages. These charts cannot be installed.
+
+## Umbrella charts
+Charts, which are intended to group other charts and services.
