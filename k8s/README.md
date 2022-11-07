@@ -94,21 +94,15 @@ to restart pod and share data between them safely.
 
 # Lab 10
 
-# Python app output
+## Python app output
 
 ```
-sarvar@sarvar-H410M-H-V3:~/labs/k8s$ minikube service pythonapp
 |-----------|-----------|-------------|---------------------------|
 | NAMESPACE |   NAME    | TARGET PORT |            URL            |
 |-----------|-----------|-------------|---------------------------|
 | default   | pythonapp | http/8000   | http://192.168.49.2:32517 |
 |-----------|-----------|-------------|---------------------------|
-🎉  Opening service default/pythonapp in default browser...
-sarvar@sarvar-H410M-H-V3:~/labs/k8s$ MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
 
-Opening in existing browser session.
-^C
-sarvar@sarvar-H410M-H-V3:~/labs/k8s$ kubectl get pods,svc
 NAME                             READY   STATUS    RESTARTS   AGE
 pod/pythonapp-847b77fc6d-crxc4   1/1     Running   0          3m34s
 pod/pythonapp-847b77fc6d-dh5bw   1/1     Running   0          3m34s
@@ -124,18 +118,12 @@ sarvar@sarvar-H410M-H-V3:~/labs/k8s$
 ## Extra app output
 
 ```
-sarvar@sarvar-H410M-H-V3:~/labs/k8s$ minikube service kotlinapp
 |-----------|-----------|-------------|---------------------------|
 | NAMESPACE |   NAME    | TARGET PORT |            URL            |
 |-----------|-----------|-------------|---------------------------|
 | default   | kotlinapp | http/8080   | http://192.168.49.2:30656 |
 |-----------|-----------|-------------|---------------------------|
-🎉  Opening service default/kotlinapp in default browser...
-sarvar@sarvar-H410M-H-V3:~/labs/k8s$ MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0
 
-Opening in existing browser session.
-^C
-sarvar@sarvar-H410M-H-V3:~/labs/k8s$ kubectl get pods,svc
 NAME                             READY   STATUS    RESTARTS   AGE
 pod/kotlinapp-76f486d8c8-4vxqx   1/1     Running   0          103s
 pod/kotlinapp-76f486d8c8-8256d   1/1     Running   0          103s
