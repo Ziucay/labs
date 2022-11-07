@@ -135,3 +135,10 @@ service/kubernetes   ClusterIP      10.96.0.1      <none>        443/TCP        
 sarvar@sarvar-H410M-H-V3:~/labs/k8s$ 
 
 ```
+
+## Library charts
+
+Charts, which are intended to contain common for the charts snippets, avoiding code duplication. Basically the similar to libraries in programming languages. These charts cannot be installed.
+
+## Umbrella charts
+Charts, which are intended to group other charts and services.
