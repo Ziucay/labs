@@ -2,6 +2,7 @@ from fastapi import FastAPI, Depends
 from datetime import datetime
 import pytz
 import json
+from os import path
 from prometheus_fastapi_instrumentator import Instrumentator
 from fastapi_health import health
 
