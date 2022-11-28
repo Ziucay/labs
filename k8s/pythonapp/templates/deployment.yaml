@@ -33,6 +33,10 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: volume-config-file
+              mountPath: /config.json
+              subPath: config.json
           {{- include "pythonapp.env.pass" . | nindent 10 }}
           ports:
             - name: http
@@ -64,3 +68,7 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+        - name: volume-config-file
+          configMap:
+            name: config-file
