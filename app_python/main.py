@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Depends
 from datetime import datetime
 import pytz
-import json
 from os import path
 from prometheus_fastapi_instrumentator import Instrumentator
 from fastapi_health import health
@@ -24,17 +23,17 @@ async def root():
 
 @app.get("/visits")
 async def get_visits():
-    if not path.exists('data/visits.json'):
-        with open('visits.json', 'w') as f:
+    if not path.exists('data/visits.txt'):
+        with open('visits.txt', 'w') as f:
             pass
-    f = open('data/visits.json')
-
-    data = json.load(f)
-
-    return json.dumps(data)
+    with open("data/visits.txt", "r") as file:
+        return file.read()
 
 async def write_time(time):
-    with open("data/visits.json", "a") as file:
+    if not path.exists('data/visits.txt'):
+        with open('visits.txt', 'w') as f:
+            pass
+    with open("data/visits.txt", "a") as file:
         file.write(f"{{ \"time\": \"{time}\"}}\n")
 
 def get_session():
