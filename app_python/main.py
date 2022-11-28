@@ -23,11 +23,11 @@ async def root():
 
 @app.get("/visits")
 async def get_visits():
-    with open("data/visits.txt", "r+") as file:
+    with open("./data/visits.txt", "r+") as file:
         return file.read()
 
 async def write_time(time):
-    with open("data/visits.txt", "a+") as file:
+    with open("./data/visits.txt", "a+") as file:
         file.write(f"{{ \"time\": \"{time}\"}}\n")
 
 def get_session():
