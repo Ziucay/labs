@@ -31,7 +31,7 @@ async def get_visits():
 
 async def write_time(time):
     if not path.exists('data/visits.txt'):
-        with open('visits.txt', 'w') as f:
+        with open('data/visits.txt', 'w') as f:
             pass
     with open("data/visits.txt", "a") as file:
         file.write(f"{{ \"time\": \"{time}\"}}\n")
