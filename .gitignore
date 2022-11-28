@@ -26,4 +26,3 @@ terraform.tfstate.backup
 # vim temporary files
 *~
 .*.sw?
-data
