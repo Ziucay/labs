@@ -13,7 +13,7 @@ networks:
 
 services:
   pythonapp:
-    build: ../app_python/
+    image: ziucay/pythonapp:latest
     restart: always
     ports:
       - "8000:8000"
