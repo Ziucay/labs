@@ -17,6 +17,8 @@ services:
     restart: always
     ports:
       - "8000:8000"
+    volumes:
+      - data:/app/data
     networks:
       - apps
     logging: *loki-logging
