@@ -13,12 +13,12 @@ networks:
 
 services:
   pythonapp:
-    image: ziucay/pythonapp:latest
+    build: ../app_python/
     restart: always
     ports:
       - "8000:8000"
     volumes:
-      - data:/app/data
+      - ./data:/app/data
     networks:
       - apps
     logging: *loki-logging
