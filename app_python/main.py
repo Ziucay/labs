@@ -18,7 +18,7 @@ def moscow_time():
 @app.get("/")
 async def root():
     time = moscow_time()
-    write_time(time)
+    await write_time(time)
     return {"time": f"{time}"}
 
 @app.get("/visits")
