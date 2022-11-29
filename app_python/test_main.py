@@ -7,7 +7,6 @@ from main import app
 pytestmark = pytest.mark.anyio
 
 
-
 async def test_app_has_correct_format():
     async with AsyncClient(app=app, base_url="http://test") as ac:
         response = await ac.get("/")
