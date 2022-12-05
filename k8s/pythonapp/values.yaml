@@ -90,7 +90,7 @@ volumes:
       name: config-file
   storage:
     name: storage-volume
-    mountPath: /opt/app/storage
+    mountPath: /app/data
     spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
