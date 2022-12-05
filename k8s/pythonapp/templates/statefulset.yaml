@@ -1,10 +1,11 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "pythonapp.fullname" . }}
   labels:
     {{- include "pythonapp.labels" . | nindent 4 }}
 spec:
+  podManagementPolicy: "Parallel"
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -34,9 +35,11 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
-            - name: volume-config-file
-              mountPath: /config.json
-              subPath: config.json
+            - name: {{ .Values.volumes.config.name }}
+              mountPath: {{ .Values.volumes.config.mountPath }}
+              subPath: {{ .Values.volumes.config.subPath }}
+            - name: {{ .Values.volumes.storage.name }}
+              mountPath: {{ .Values.volumes.storage.mountPath }}
           {{- include "pythonapp.env.pass" . | nindent 10 }}
           ports:
             - name: http
@@ -69,6 +72,12 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-        - name: volume-config-file
+        - name: {{ .Values.volumes.config.name }}
           configMap:
-            name: config-file
+            name: {{ .Values.volumes.config.configMap.name }}
+
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ .Values.volumes.storage.name }}
+      spec:
+        {{- toYaml .Values.volumes.storage.spec | nindent 8 }}

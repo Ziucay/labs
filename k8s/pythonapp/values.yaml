@@ -80,3 +80,19 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+volumes:
+  config:
+    name: volume-config-file
+    mountPath: /config.json
+    subPath: config.json
+    configMap:
+      name: config-file
+  storage:
+    name: storage-volume
+    mountPath: /app/data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 128Mi
