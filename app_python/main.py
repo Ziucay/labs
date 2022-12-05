@@ -1,10 +1,11 @@
 from fastapi import FastAPI, Depends
 from datetime import datetime
 import pytz
-from os import path
+import os
 from prometheus_fastapi_instrumentator import Instrumentator
 from fastapi_health import health
 
+os.makedirs("data", exist_ok=True)
 app = FastAPI()
 
 @app.on_event("startup")
