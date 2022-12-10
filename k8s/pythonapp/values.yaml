@@ -4,6 +4,8 @@
 
 replicaCount: 3
 
+serviceName: "pythonapp"
+
 image:
   repository: ziucay/pythonapp
   pullPolicy: Always
