@@ -3,8 +3,7 @@
 - Added `.dockerignore` to increase performance
 - Base maven images specified with version, to ensure correct work
 - Added `Makefile` to reuse some of the commands
-- used multi-stage builds to reduce image size.
-Size reduced from 620 MB in first version to 227.81 in second.
+- used multi-stage builds to reduce image size. Size reduced from 620 MB in first version to 227.81 in second.
 
 # Linter
 

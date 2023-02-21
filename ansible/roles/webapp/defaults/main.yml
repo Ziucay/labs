@@ -1,0 +1,9 @@
+app_name: "default-container"
+docker_ports:
+  external: 80
+  internal: 80
+docker_registry: "library"
+docker_image: "nginx"
+docker_tag: "latest"
+app_base_path: "/app"
+web_app_full_wipe: true

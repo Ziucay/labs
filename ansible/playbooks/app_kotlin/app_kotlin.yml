@@ -1,0 +1,16 @@
+- name: Deploy kotlin app
+  hosts: all
+  remote_user: ubuntu
+  become: true
+  roles:
+    - role: webapp
+      vars:
+        app_name: "kotlinapp"
+        docker_ports:
+          external: 8080
+          internal: 8080
+        docker_registry: "ziucay"
+        docker_image: "kotlinapp"
+        docker_tag: "latest"
+        app_base_path: "/app"
+        web_app_full_wipe: true

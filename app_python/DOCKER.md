@@ -4,7 +4,7 @@
 - Base python image specified with version, to ensure correct work
 - Added environment variable to decrease duplications
 - Installing requirements on build to make server start faster
-- Added `Makefile` to reuse some of the commands
+- Added `Makefile` to reuse some commands
 
 # Problems
 

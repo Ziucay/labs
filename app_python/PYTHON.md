@@ -53,3 +53,27 @@ When you can check documents
    ```bash
    vale <path to document>
    ```
+
+# Unit tests
+
+For this project I created one test, which asserts that the
+time returned in correct format. Due to simplicity of the code, I 
+see no reason to check the timestamp itself, as we either use
+the same commands we have in rest, or the check would be more
+complicated than the rest itself(for example, by making request to
+WorldTimeAPI).
+
+## Best practices
+
+I used `pytest` with `anyio` plugin for asynchoronous tests. `anyio`
+supports both `asyncio` and `trio` libraries, and I chose `asyncio`,
+as it is more popular. Warning: if we don't specify backend for
+`anyio`, it would try to run both `trio` and `asyncio` backends, which
+can break, if we don't have `trio` installed.
+
+I found `pytest` better than `unittest` from standard library, as
+it is more compact.
+
+In writing tests I relied on [Python guide for writing tests](https://docs.python-guide.org/writing/tests/).
+Also, I used [FastAPI documentation](https://fastapi.tiangolo.com/advanced/async-tests/).
+

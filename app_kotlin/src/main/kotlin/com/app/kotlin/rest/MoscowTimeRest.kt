@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class MoscowTimeRest {
+class MoscowTimeRest(private val getTimeService: GetTimeService) {
 
     @GetMapping("/moscow/time")
     fun moscowTime(): MoscowTimeRestDTO {
-        return MoscowTimeRestDTO(GetTimeService().getMoscowTime())
+        return MoscowTimeRestDTO(getTimeService.getMoscowTime())
     }
 }

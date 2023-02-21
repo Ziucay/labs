@@ -1,0 +1,6 @@
+- name: Deploy default app
+  hosts: all
+  roles:
+    - webapp
+  remote_user: ubuntu
+  become: true
